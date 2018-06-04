@@ -770,7 +770,7 @@ void TestAdArcade::Asteroid::updatePositions ()
 
 	if (exploding () && 
 		((QGAMES::Entity::FormAnimation*) animation (currentState () -> animationId ())) -> end ())
-		toDissapearNextLoop (); // After exploding it dissapear...
+		notify (QGAMES::Event (__GAMETEST_ASTEROIDALREADYEXPLODED__, this)); // To be reused...
 
 	QGAMES::Artist::updatePositions ();
 }
@@ -1022,7 +1022,9 @@ void TestAdArcade::Scene::setLevel (int l)
 	
 	((TestAdArcade::Game*) game ()) -> setLevel (_level); 
 
-	counter (_COUNTERTOASTEROID) -> initialize ((int) (_LEVEL [_level][0] * game () -> framesPerSecond ()), 0, true, true);
+	counter (_COUNTERTOASTEROID) -> 
+		initialize ((int) (_LEVEL [_level][0] * game () -> framesPerSecond () / 
+			(((TestAdArcade::Game::Conf*) game () -> configuration ()) -> difficulty () + 1)), 0, true, true);
 	counter (_COUNTERBATLESHIPSHOOTING) -> initialize ((int) (_LEVEL [_level][0] * __BD 1.25 * game () -> 
 		framesPerSecond ()), 0, true, true);
 }
@@ -1052,6 +1054,9 @@ void TestAdArcade::Scene::initialize ()
 		(TestAdArcade::ShootingToCatch*) (__AGM game ()) -> artist (__GAMETEST_BATTLESHIPSHOOTINGTOCATCHID__));
 
 	setMap (__GAMETEST_MAPID__);
+	activeMap () -> layer (std::string (__GAMETEST_MAPLAYERBACKGROUND__)) -> setVisible (false);
+	// Instead of changing the map definition file, the layer is set to invisible
+	// This is because it is in my interest to test all properties as possible in definition...
 
 	reStartAllCounters ();
 	reStartAllOnOffSwitches ();
@@ -1079,7 +1084,9 @@ void TestAdArcade::Scene::updatePositions ()
 	// A new asteroid appears depending on the level
 	if (counter (_COUNTERTOASTEROID) -> isEnd ())
 	{
-		if ((rand () % 100 < (int) _LEVEL [_level][1]) && (int) _freeAsteroids.size () > 0)
+		if ((rand () % 100 < (int) (__BD _LEVEL [_level][1] * 
+				(__BD 1 + (__BD ((TestAdArcade::Game::Conf*) game () -> configuration ()) -> difficulty ()) / __BD 10))) && 
+			(int) _freeAsteroids.size () > 0)
 		{
 			TestAdArcade::Asteroid* ast = 
 				(TestAdArcade::Asteroid*) (*_freeAsteroids.begin ()); 
@@ -1088,7 +1095,7 @@ void TestAdArcade::Scene::updatePositions ()
 			ast -> setPosition (QGAMES::Position (
 				__BD (rand () % 
 					(__GAMETEST_SCREENWIDTH__ - ast -> currentForm () -> frameWidthForFrame (ast -> currentAspect ()))),
-				__BD -50, __BD 0));
+				__BD -100, __BD 0));
 		}
 	}
 
@@ -1133,8 +1140,10 @@ void TestAdArcade::Scene::processEvent (const QGAMES::Event& evnt)
 
 			break;
 
-		// This event comes from an asteroid...
+		// This event comes from an asteroid...(when it has left the screen)
 		case __GAMETEST_ASTEROIDOUTOFSCREEN__:
+		// ...and this other too...(when it has exploded)
+		case __GAMETEST_ASTEROIDALREADYEXPLODED__:
 			{
 				TestAdArcade::Asteroid* ast = (TestAdArcade::Asteroid*) evnt.data ();
 				ast -> toDissapearNextLoop ();
@@ -1142,7 +1151,8 @@ void TestAdArcade::Scene::processEvent (const QGAMES::Event& evnt)
 
 				// The asteroid has to dissapear, but the puntuation of the player is reduced also in 
 				// a percentage of the initial energy of the asteroid...
-				((TestAdArcade::Game*) game ()) -> addScore (-ast -> initialEnergy () / 10);
+				if (evnt.code () == __GAMETEST_ASTEROIDOUTOFSCREEN__)
+					((TestAdArcade::Game*) game ()) -> addScore (-ast -> initialEnergy () / 10);
 			}
 
 			break;
