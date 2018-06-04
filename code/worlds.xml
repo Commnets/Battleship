@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Worlds>
+	<World id="1">
+		<Scenes>
+			<Scene id="1">
+				<Attributes/>
+				<Conexions/>
+				<Maps>
+					<Map id="1" file="./maps/background.xml"/>
+				</Maps>
+				<Entities>
+					<Entity id="100" layer="0"/>
+					<SetOfEntities fromId="200" number="100" layer="0"/>
+					<SetOfEntities fromId="300" number="50" layer="0"/>
+				</Entities>
+			</Scene>
+		</Scenes>
+		<Attributes/>
+	</World>
+</Worlds>
