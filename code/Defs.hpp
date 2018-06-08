@@ -4,15 +4,15 @@
 /**	
  *	@file	
  *	File: Defs.hpp \n
- *	Framework: Test SDL \n
+ *	Framework: Test Adavanced Arcade \n
  *	Author: Ignacio Cea Forniés (Community Networks) \n
  *	Creation Date: 15/01/2018 \n
- *	Description: Defines and genral includes of Test SDL
+ *	Description: Defines and general includes of Test Advanced Arcade
  *	Versions: 1.0 Initial
  */
 
-#ifndef __GAMETESTSDLDEFINES__
-#define __GAMETESTSDLDEFINES__
+#ifndef __GAMETESTADARCADEDEFINES__
+#define __GAMETESTADARCADEDEFINES__
 
 #include <AdvancedArcade/adinclude.hpp>
 #include <graphicsinclude.hpp>
@@ -114,6 +114,7 @@
 #define __GAMETEST_MAPLAYERBACKGROUND__					"background"
 
 // Forms related with the battleship
+#define __GAMETEST_BATTLESHIPGAMELOGO__					99
 #define __GAMETEST_SPACESHIPRIGHTFORM__					100
 #define __GAMETEST_SPACESHIPLEFTFORM__					101
 #define __GAMETEST_SPACESHIPSTAYFORM__					102

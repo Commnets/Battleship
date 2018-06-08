@@ -946,6 +946,7 @@ QGAMES::Entity* TestAdArcade::EntityBuilder::createEntity (const QGAMES::EntityB
 QGAMES::Movement* TestAdArcade::MovementBuilder::createMovement (const QGAMES::MovementBuilder::MovementDefinition& def)
 {
 	QGAMES::Movement* result = NULL;
+
 	if (def._id == __GAMETEST_BATTLESHIPRUNMOVEMENT__)
 		result = new QGAMES::SimpleLinearMovement (def._id, def._variables);
 	else if (def._id == __GAMETEST_BATTLESHIPSTAYMOVEMENT__)
@@ -2324,6 +2325,7 @@ void TestAdArcade::Game::initialize ()
 	QGAMES::AdvancedArcadeGame::initialize ();
 
 	mainScreen () -> windowAtCenter ();
+	mainScreen () -> setIcon (form (__GAMETEST_BATTLESHIPGAMELOGO__));
 
 	((QGAMES::LoadingGameState*) state (__QGAMES_GAMESTATELOADINGNAME__)) ->
 		setProperties (QGAMES::ShowingFormBeingFulfilledGameState::Properties

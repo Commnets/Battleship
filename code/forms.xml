@@ -5,6 +5,8 @@
 	<Include file="adforms.xml"/>
 	
 	<!-- The battle spaceship -->
+	<Form id="99" name="BattleshipGameLogo" file="forms/BattleshipGameLogo.png" width="32" height="32" 
+            fSpacing="0" fMargin="0" fWidth="32" fHeight="32" aColor="255" nFrames="1"/>
 	<Form id="100" name="SpaceshipRight" file="forms/SpaceshipRight.png" width="92" height="288" 
             fSpacing="0" fMargin="0" fWidth="92" fHeight="96" aColor="255" nFrames="3"/>
 	<Form id="101" name="SpaceshipLeft" file="forms/SpaceshipLeft.png" width="92" height="288" 

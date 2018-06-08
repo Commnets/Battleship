@@ -103,7 +103,7 @@
     <ResourceCompile Include="TestAdArcade.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="CommnetsIcon.ico" />
+    <Image Include="Battleship.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

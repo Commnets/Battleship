@@ -3,7 +3,7 @@
 
 /**	
  *	@file	
- *	File: TEstAdArcade.hpp \n
+ *	File: TestAdArcade.hpp \n
  *	Framework: Commty Game Library (CGL) \n
  *	Author: Ignacio Cea Forniés (Community Networks) \n
  *	Creation Date: 14/04/2018 \n
@@ -383,8 +383,7 @@ namespace TestAdArcade
 	// --------------------------------------------------------------------------------
 
 	// -------The movements-------------------------------------------------------------------------
-	/** To create basic movements. 
-		Nothing is done. */
+	/** To create basic movements. */
 	class MovementBuilder : public QGAMES::AdvancedMovementBuilder
 	{
 		public:
@@ -1080,7 +1079,7 @@ namespace TestAdArcade
 							{ QGAMES::Screens result;
 								result.insert (QGAMES::Screens::value_type (__QGAMES_MAINSCREEN__, 
 									implementation () -> createScreen 
-										(std::string ("Advanced Arcade Test"),
+										(std::string ("Battleship Commander"),
 										QGAMES::Position::_cero, __GAMETEST_SCREENWIDTH__, __GAMETEST_SCREENHEIGHT__, 100, 100)));
 								return (result); }
 		virtual QGAMES::WorldBuilder* createWorldBuilder ()

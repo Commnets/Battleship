@@ -51,7 +51,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="CommnetsIcon.ico">
+    <Image Include="Battleship.ico">
       <Filter>Archivos de recursos</Filter>
     </Image>
   </ItemGroup>
