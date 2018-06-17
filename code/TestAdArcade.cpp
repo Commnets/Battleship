@@ -221,20 +221,40 @@ void TestAdArcade::NumberOfPointsScoreObject::updatePositions ()
 
 	setNumber (((TestAdArcade::Game*) game ()) -> score ());
 }
+
+// ---
+TestAdArcade::NumberOfShootingsScoreObject::NumberOfShootingsScoreObject ()
+	: QGAMES::ScoreObjectNumber (__GAMETEST_SHOOTINGSREAMININGSCOREOBJECTID__, 0, QGAMES::Forms (), 16)
+{ 
+	_forms.insert (QGAMES::Forms::value_type (__QGAMES_RAVIE12GREENLETTERS__, 
+		QGAMES::Game::game () -> form (__QGAMES_RAVIE12GREENLETTERS__)));
+	setCurrentForm (__QGAMES_RAVIE12GREENLETTERS__); 
+	setNumberLength (5);
+	setSpace (0);
+	setPosition (QGAMES::Position (__BD 10, __BD 110, __BD 0));
+}
+
+// ---
+void TestAdArcade::NumberOfShootingsScoreObject::updatePositions ()
+{
+	QGAMES::ScoreObjectNumber::updatePositions ();
+
+	setNumber (((TestAdArcade::Game*) game ()) -> shootingsRemaining ());
+}
 // --------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------
 const int TestAdArcade::SpaceBattleShip::_POWERDATA [__GAMETEST_BATTLESHIPMAXPOWER__][5] =
-	{ { 0, 2,   1, 50,  800 }, 
-	  { 0, 5,   2, 50,  800 }, 
-	  { 1, 10,  2, 50,  800 }, 
-	  { 1, 15,  3, 50,  800 }, 
-	  { 2, 20,  2, 50,  800 }, 
-	  { 3, 30,  3, 75,  900 }, 
-	  { 3, 50,  4, 75,  900 }, 
-	  { 4, 60,  5, 75,  900 }, 
-	  { 5, 60,  5, 100, 1000 }, 
-	  { 5, 100, 5, 100, 1000 } 
+	{ { 0, 2,   1, 50,  200 }, 
+	  { 0, 5,   2, 50,  200 }, 
+	  { 1, 10,  2, 50,  200 }, 
+	  { 1, 15,  3, 50,  200 }, 
+	  { 2, 20,  2, 50,  200 }, 
+	  { 3, 30,  3, 75,  400 }, 
+	  { 3, 50,  4, 75,  400 }, 
+	  { 4, 60,  5, 75,  400 }, 
+	  { 5, 60,  5, 100, 600 }, 
+	  { 5, 100, 5, 100, 600 } 
 	};
 
 // ---
@@ -2300,10 +2320,17 @@ void TestAdArcade::Game::Conf::cfgFromStream (std::istringstream& iS)
 }
 
 // ---
+int TestAdArcade::Game::shootingsRemaining ()
+{
+	return (((TestAdArcade::SpaceBattleShip*) entity (__GAMETEST_BATTLESHIPID__)) -> shootingsReaming ());
+}
+
+// ---
 void TestAdArcade::Game::addScoreObjects ()
 {
 	addScoreObject (new TestAdArcade::NumberOfLivesScoreObject ());
 	addScoreObject (new TestAdArcade::NumberOfPointsScoreObject ());
+	addScoreObject (new TestAdArcade::NumberOfShootingsScoreObject ());
 }
 
 // ---

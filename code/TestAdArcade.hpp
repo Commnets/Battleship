@@ -106,6 +106,25 @@ namespace TestAdArcade
 		virtual int formToDrawDigits ()
 							{ return (__QGAMES_RAVIE24BLUELETTERS__); }
 	};
+
+	/** This score object is to indicate how many shooting the player has still. */
+	class NumberOfShootingsScoreObject : public QGAMES::ScoreObjectNumber
+	{
+		public:
+		NumberOfShootingsScoreObject ();
+
+		/** @see parent. */
+		virtual QGAMES::Entity* clone ()
+							{ return (new NumberOfShootingsScoreObject ()); }
+
+		/** @see parent. */
+		virtual void updatePositions ();
+
+		protected:
+		/** @see parent */
+		virtual int formToDrawDigits ()
+							{ return (__QGAMES_RAVIE12GREENLETTERS__); }
+	};
 	// --------------------------------------------------------------------------------
 
 	// -------The characters-------------------------------------------------------------------------
@@ -988,10 +1007,10 @@ namespace TestAdArcade
 							{ assert (nP > 0 && nP <= (int) _level.size ());
 							  _level [nP - 1] = (l >= 0) ? l : 0; }
 			const std::string& playerName (int nP) const 
-							{ assert (nP > 0 && nP <= (int) _level.size ());
+							{ assert (nP > 0 && nP <= (int) _playerName.size ());
 							  return (_playerName [nP - 1]); }
 			void setPlayerName (int nP, const std::string& n)
-							{ assert (nP > 0 && nP <= (int) _level.size ());
+							{ assert (nP > 0 && nP <= (int) _playerName.size ());
 							  _playerName [nP - 1] = n; }
 
 			/** To change the hall of fame. */
@@ -1052,6 +1071,10 @@ namespace TestAdArcade
 								setScore ((nP == -1) ? currentPlayer () : nP, s); }
 		void addScore (int a, int nP = -1)
 							{ setScore (score (nP) + a, nP); }
+		/** To know the number of shootings still pending. 
+			This number is not part of the configuration. 
+			It always returns the number for the current player. */
+		int shootingsRemaining ();
 
 		/** Actualize the hall of fame, with the last results. */
 		void actualizeHallOfFame ()
