@@ -972,14 +972,6 @@ namespace TestAdArcade
 				: QGAMES::AdvancedArcadeGame::Conf (nP),
 				  _score (), _weaponsLevel (), _level (), _playerName ()
 							{ assert (_numberPlayers > 0 && _numberPlayers < __GAMETEST_MAXNUMBERPLAYERS__);
-							  _keys.resize (7);
-							  _keys [__GAMETEST_KEYLEFT__] = QGAMES::KeyCode::QGAMES_A; // Left
-							  _keys [__GAMETEST_KEYRIGHT__] = QGAMES::KeyCode::QGAMES_S; // Right
-							  _keys [__GAMETEST_KEYUP__] = QGAMES::KeyCode::QGAMES_P; // Up
-							  _keys [__GAMETEST_KEYDOWN__] = QGAMES::KeyCode::QGAMES_L; // Down
-							  _keys [__GAMETEST_KEYFIRE__] = QGAMES::KeyCode::QGAMES_SPACE; // Fire
-							  _keys [__GAMETEST_KEYPAUSE__] = QGAMES::KeyCode::QGAMES_Z; // Pause
-							  _keys [__GAMETEST_KEYSAVE__] = QGAMES::KeyCode::QGAMES_F1; // Save
 							  adjustToPlayers (nP); }
 
 			/** @see parent. */

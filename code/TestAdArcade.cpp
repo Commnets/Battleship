@@ -31,7 +31,8 @@ QGAMES::Widget* TestAdArcade::GUISystemBuilder::createWidget (const QGAMES::GUIS
 {
 	QGAMES::Widget* result = NULL;
 
-	if (def._id == __QGAMES_STDGUISYSTEMMAINWIDGET__) 
+	if (def._id == __QGAMES_STDGUISYSTEMMAINWIDGET__ ||
+		def._id == __QGAMES_STDGUISYSTEMMAINCONFWIDGET__) 
 		result = new TestAdArcade::ControlWidget (def._id);
 	else
 		result = QGAMES::StandardGUISystemBuilder::createWidget (def);
@@ -62,10 +63,10 @@ void TestAdArcade::InputHandlerBehaviour::onKeyboardStatus (const std::vector <b
 	assert (chr); // Just in case...
 
 	int dMov = 0x00;
-	dMov |= kS [_keys [__GAMETEST_KEYUP__]]    ? 0x01 : 0x00;
-	dMov |= kS [_keys [__GAMETEST_KEYRIGHT__]] ? 0x02 : 0x00;
-	dMov |= kS [_keys [__GAMETEST_KEYDOWN__]]  ? 0x04 : 0x00;
-	dMov |= kS [_keys [__GAMETEST_KEYLEFT__]]  ? 0x08 : 0x00;
+	dMov |= kS [_keys [__QGAMES_KEYUP__]]		? 0x01 : 0x00;
+	dMov |= kS [_keys [__QGAMES_KEYRIGHT__]]	? 0x02 : 0x00;
+	dMov |= kS [_keys [__QGAMES_KEYDOWN__]]		? 0x04 : 0x00;
+	dMov |= kS [_keys [__QGAMES_KEYLEFT__]]		? 0x08 : 0x00;
 	switch (dMov)
 	{
 		case 0x01:
@@ -88,7 +89,7 @@ void TestAdArcade::InputHandlerBehaviour::onKeyboardStatus (const std::vector <b
 			chr -> toStay (); break;
 	}
 
-	if (kS [_keys [__GAMETEST_KEYFIRE__]])
+	if (kS [_keys [__QGAMES_KEYFIRE__]])
 		chr -> toShoot ();
 }
 
@@ -103,14 +104,14 @@ void TestAdArcade::InputHandlerBehaviour::manageKeyOnState (QGAMES::GameState* s
 		return;
 
 	// To pause / or to continue the game...
-	if (kP == _keys [__GAMETEST_KEYPAUSE__])
+	if (kP == _keys [__QGAMES_KEYPAUSE__])
 	{
 		if (game () -> isGamePaused ()) game () -> continueGame ();
 		else game () -> pauseGame ();
 	}
 
 	// To save the current status of the game...
-	if (kP == _keys [__GAMETEST_KEYSAVE__])
+	if (kP == _keys [__QGAMES_KEYSAVE__])
 		((TestAdArcade::Game*) game ()) -> 
 			saveConfiguration (QGAMES::StandardInitialSelectionOptionsGameState::_CONFFILENAME);
 }

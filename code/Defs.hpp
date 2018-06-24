@@ -39,15 +39,6 @@
 #define __GAMETEST_PLAYERNAMEGUISYSTEM__				100
 #define __GAMETEST_PLAYERNAMEOPTIONID__					102
 
-// The keys to control
-#define __GAMETEST_KEYLEFT__							0
-#define __GAMETEST_KEYRIGHT__							1
-#define __GAMETEST_KEYUP__								2
-#define __GAMETEST_KEYDOWN__							3
-#define __GAMETEST_KEYFIRE__							4
-#define __GAMETEST_KEYPAUSE__							5
-#define __GAMETEST_KEYSAVE__							6
-
 // The battleship
 #define __GAMETEST_BATTLESHIPID__						100
 #define __GAMETEST_BATTLESHIPANIMATIONMOVERIGHT__		0
