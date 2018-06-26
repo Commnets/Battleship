@@ -181,7 +181,10 @@ namespace TestAdArcade
 			When the power level is set, thenis also changed at configuration level. */
 		int powerLevel () const
 							{ return (_powerLevel); }
-		void setPowerLevel (int pL);
+		/** When the power level is set, the max number of shooting can also be set.
+			-1 means that the default number will be used.
+			Other number will be the maximum possible. */
+		void setPowerLevel (int pL, int mNS = -1);
 		/** What these methods return will depend on the type of shooting in each moment. */
 		int typeOfShooting () const
 							{ return (_POWERDATA [_powerLevel][0]); }

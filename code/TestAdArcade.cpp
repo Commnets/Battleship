@@ -469,7 +469,7 @@ bool TestAdArcade::SpaceBattleShip::died () const
 }
 
 // ---
-void TestAdArcade::SpaceBattleShip::setPowerLevel (int pL)
+void TestAdArcade::SpaceBattleShip::setPowerLevel (int pL, int mNS)
 {
 	// The powe level has to be into the limits
 	// Otherwise it is adjusted automatically into them...
@@ -477,7 +477,8 @@ void TestAdArcade::SpaceBattleShip::setPowerLevel (int pL)
 		((pL < __GAMETEST_BATTLESHIPMAXPOWER__) ? pL : (__GAMETEST_BATTLESHIPMAXPOWER__ - 1)) : 0);
 	
 	// Set the shootings remaining to the beginning...
-	_shootingsRemaining = _POWERDATA [_powerLevel][4];
+	_shootingsRemaining = (mNS == -1) 
+		? _POWERDATA [_powerLevel][4] : ((_POWERDATA [_powerLevel][4] < mNS) ? _POWERDATA [_powerLevel][4] : mNS);
 }
 
 // ---
@@ -1186,7 +1187,7 @@ void TestAdArcade::Scene::processEvent (const QGAMES::Event& evnt)
 				// when a shooting to catch is not cought the powel level is reduced in 1 (if possible)...
 				TestAdArcade::SpaceBattleShip* bS = 
 					((TestAdArcade::SpaceBattleShip*) entity (__GAMETEST_BATTLESHIPID__));
-				bS -> setPowerLevel (bS -> powerLevel () - 1);
+				bS -> setPowerLevel (bS -> powerLevel () - 1, bS -> shootingsReaming ());
 			}
 
 		// ...and this when the shoothing to catch has collisioned with the battleship
