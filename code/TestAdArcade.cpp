@@ -5,9 +5,9 @@ TestAdArcade::WhenFocusDecorator::WhenFocusDecorator ()
 	: QGAMES::Widget::ComplexDecorator ()
 {
 	addDecorator (new QGAMES::Widget::BlinkingBackgroundDecorator 
-		(QGAMES::Color (__GAMETEST_WHITECOLOR__), 4, 100, 200, 1));
+		(QGAMES::Color (__QGAMES_WHITECOLOR__), 4, 100, 200, 1));
 	addDecorator (new QGAMES::Widget::RoundingDecorator 
-		(QGAMES::Color (__GAMETEST_WHITECOLOR__), 2, QGAMES::Color (__GAMETEST_TRANSPARENTCOLOR__), 5));
+		(QGAMES::Color (__QGAMES_WHITECOLOR__), 2, QGAMES::Color (__QGAMES_TRANSPARENTCOLOR__), 5));
 }
 // --------------------------------------------------------------------------------
 
@@ -127,7 +127,7 @@ void TestAdArcade::InputHandlerBehaviour::manageJoystickMovementOnState (QGAMES:
 		(game () -> activeState () -> nestedState () -> type () == __GAMETEST_PLAYINGGAMESTATE__ &&
 		 ((TestAdArcade::ControllingGameStates*) game () -> activeState ()) -> isStopped ()) ||
 		nJ != 0)
-		return; // If no playing, or playing but stopped, or the joysticj is not the 0, then nothing to execute...
+		return; // If no playing, or playing but stopped, or the joystick is not the 0, then nothing to execute...
 
 	// If using joystick hasn't been configured, here makes no sense to continue...
 	if (!((TestAdArcade::Game::Conf*) game () -> configuration ()) -> useJoystick ())
@@ -1636,7 +1636,7 @@ void TestAdArcade::BattleshipMovingGameState::processEvent (const QGAMES::Event&
 // ---
 TestAdArcade::SelectionGameState::SelectionGameState ()
 	: QGAMES::StandardInitialSelectionOptionsGameState (__GAMETEST_SELECTIONGAMESTATE__,
-		new QGAMES::ShowingFixFormGameState (__GAMETEST_PRESENTATIONGAMESTATE__ + 1, 
+		new QGAMES::ShowingFixFormGameState (__GAMETEST_SELECTIONGAMESTATE__ + 1, 
 			QGAMES::ShowingFixFormGameState::Properties (), 
 		new BattleshipMovingGameState (__GAMETEST_SELECTIONGAMESTATE__ + 2, 
 		new QGAMES::RollingFormsGameState (__GAMETEST_SELECTIONGAMESTATE__ + 3,

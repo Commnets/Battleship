@@ -33,6 +33,23 @@
     <Form id="10017" name="bubbles2" file="forms/bubbles2.png" width="112" height="16"
 		fSpacing="0" fMargin="0" fWidth="16" fHeight="16" aColor="255" nFrames="7"/>
 	<!-- -->
+	
+	<!-- Forms used in some standard score objects -->
+	<!-- The standard energy bars -->
+	<Form id="10020" name="BlueEnergyBar" file="forms/BlueEnergyBar.png" width="303" height="90" 
+            fSpacing="0" fMargin="0" fWidth="303" fHeight="45" aColor="255" nFrames="2"/>
+	<Form id="10021" name="RedEnergyBar" file="forms/RedEnergyBar.png" width="303" height="90" 
+            fSpacing="0" fMargin="0" fWidth="303" fHeight="45" aColor="255" nFrames="2"/>
+	<Form id="10022" name="GreenEnergyBar" file="forms/GreenEnergyBar.png" width="303" height="90" 
+            fSpacing="0" fMargin="0" fWidth="303" fHeight="45" aColor="255" nFrames="2"/>
+	<Form id="10023" name="YellowEnergyBar" file="forms/YellowEnergyBar.png" width="303" height="90" 
+            fSpacing="0" fMargin="0" fWidth="303" fHeight="45" aColor="255" nFrames="2"/>
+	<!-- A set of balls to represent lives in use and lives already used -->
+	<Form id="10024" name="RedBall" file="forms/redball.png" width="50" height="50" 
+            fSpacing="0" fMargin="0" fWidth="50" fHeight="50" aColor="255" nFrames="1"/>
+	<Form id="10025" name="GreenBall" file="forms/greenball.png" width="50" height="50" 
+            fSpacing="0" fMargin="0" fWidth="50" fHeight="50" aColor="255" nFrames="1"/>
+	<!-- -->
 
 	<!-- -->
 	<!-- Some fonts -->

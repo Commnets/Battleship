@@ -773,8 +773,7 @@ namespace TestAdArcade
 
 		// Implementation
 		QGAMES::GUISystem* _guiSystem;
-		bool _nameIntroduced;
-		
+		bool _nameIntroduced;	
 	};
 
 	/** 

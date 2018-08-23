@@ -231,7 +231,7 @@
 			</Attributes>
 		</Widget>
 
-		<!-- Option 6: Selecting key for save -->
+		<!-- Option 6: Selecting key for pausing the game -->
 		<Widget id="10107" type="3" position="0,250,0">
 			<Attributes>
 				<Attribute id="Form" value="20021"/>

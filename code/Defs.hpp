@@ -24,16 +24,6 @@
 #define __MAPHEIGHTINPIXELS__							__GAMETEST_SCREENHEIGHT__
 // The map has the same size than the visual screen...
 
-/** Some colors. */
-#define __GAMETEST_WHITECOLOR__							QGAMES::Color (255, 255, 255, 255)
-#define __GAMETEST_TRANSPARENTCOLOR__					QGAMES::Color (0, 0, 0, 0)
-#define __GAMETEST_YELLOWCOLOR__						QGAMES::Color (255, 255, 0, 255)
-#define __GAMETEST_GRAYCOLOR__							QGAMES::Color (100, 100, 100, 255)
-#define __GAMETEST_BLUECOLOR__							QGAMES::Color (0, 0, 255, 255)
-#define __GAMETEST_BLACKCOLOR__							QGAMES::Color (0, 0, 0, 255)
-#define __GAMETEST_GREENCOLOR__							QGAMES::Color (0, 255, 0, 255)
-#define __GAMETEST_REDCOLOR__							QGAMES::Color (255, 0, 0, 255)
-
 /** Constants related with the game. */
 // The particular GUI System to ask for the name of the player
 #define __GAMETEST_PLAYERNAMEGUISYSTEM__				100
