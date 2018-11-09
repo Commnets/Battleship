@@ -1201,7 +1201,7 @@ void TestAdArcade::Scene::processEvent (const QGAMES::Event& evnt)
 
 		// This event comes from the loop counter...
 		case __QGAMES_LOOPCOUNTEREVENT__:
- 			notify (QGAMES::Event (__GAMETEST_LEVELCOMPLETE__, this));
+			notify (QGAMES::Event (__GAMETEST_LEVELCOMPLETE__, this));
 			break;
 
 		default:
@@ -2278,7 +2278,7 @@ void TestAdArcade::Game::Conf::adjustToPlayers (int nP)
 
 	_score = std::vector <int> (_numberPlayers, 0);
 	_weaponsLevel = std::vector <int> (_numberPlayers, 0);
-	_level = std::vector <int> (_numberPlayers, 1); // The first level is 1
+	_level = std::vector <int> (_numberPlayers, 0); // The first level is 1
 	_playerName = std::vector <std::string> (_numberPlayers, std::string (__NULL_STRING__));
 
 	// Adjust the previous loaded elements to this game...
