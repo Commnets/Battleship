@@ -81,7 +81,7 @@ namespace TestAdArcade
 		NumberOfLivesScoreObject ();
 
 		/** @see parent. */
-		virtual QGAMES::Entity* clone ()
+		virtual QGAMES::Entity* clone () const
 							{ return (new NumberOfLivesScoreObject ()); }
 
 		/** @see parent. */
@@ -95,7 +95,7 @@ namespace TestAdArcade
 		NumberOfPointsScoreObject ();
 
 		/** @see parent. */
-		virtual QGAMES::Entity* clone ()
+		virtual QGAMES::Entity* clone () const
 							{ return (new NumberOfPointsScoreObject ()); }
 
 		/** @see parent. */
@@ -114,7 +114,7 @@ namespace TestAdArcade
 		NumberOfShootingsScoreObject ();
 
 		/** @see parent. */
-		virtual QGAMES::Entity* clone ()
+		virtual QGAMES::Entity* clone () const
 							{ return (new NumberOfShootingsScoreObject ()); }
 
 		/** @see parent. */
@@ -139,7 +139,7 @@ namespace TestAdArcade
 							{ }
 
 		/** @see parent. */
-		virtual Entity* clone ()
+		virtual Entity* clone () const
 								{ return (new SpaceBattleShip (_id, _forms, _data)); }
 
 		/** @see parent. */
@@ -238,7 +238,7 @@ namespace TestAdArcade
 							{ }
 
 		/** @see parent. */
-		virtual Entity* clone ()
+		virtual Entity* clone () const
 							{ return (new SpaceBattleShipShooting (_id, _forms, _data)); }
 
 		/** To get set the energy. 
@@ -301,7 +301,7 @@ namespace TestAdArcade
 							{ return (_initialEnergy); }
 
 		/** @see parent. */
-		virtual Entity* clone ()
+		virtual Entity* clone () const
 							{ return (new Asteroid (_id, _forms, _data)); }
 
 		// Controlling the movements
@@ -359,7 +359,7 @@ namespace TestAdArcade
 							{ }
 
 		/** @see parent. */
-		virtual Entity* clone ()
+		virtual Entity* clone () const
 							{ return (new ShootingToCatch (_id, _forms, _data)); }
 
 		// Controlling the movements
@@ -977,7 +977,7 @@ namespace TestAdArcade
 							  adjustToPlayers (nP); }
 
 			/** @see parent. */
-			virtual Configuration* clone ()
+			virtual Configuration* clone () const
 							{ return (new Conf (*this)); }
 
 			// To Read & Set the internal attributes

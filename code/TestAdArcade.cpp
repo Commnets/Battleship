@@ -2276,15 +2276,15 @@ void TestAdArcade::Game::Conf::adjustToPlayers (int nP)
 {
 	QGAMES::AdvancedArcadeGame::Conf::adjustToPlayers (nP);
 
-	_score = std::vector <int> (_numberPlayers, 0);
-	_weaponsLevel = std::vector <int> (_numberPlayers, 0);
-	_level = std::vector <int> (_numberPlayers, 0); // The first level is 1
-	_playerName = std::vector <std::string> (_numberPlayers, std::string (__NULL_STRING__));
+	_score = std::vector <int> (nP, 0);
+	_weaponsLevel = std::vector <int> (nP, 0);
+	_level = std::vector <int> (nP, 0); // The first level is 1
+	_playerName = std::vector <std::string> (nP, std::string (__NULL_STRING__));
 
 	// Adjust the previous loaded elements to this game...
-	_currentWorld = std::vector <int> (_numberPlayers, __GAMETEST_WORLDID__);
-	_currentScene = std::vector <int> (_numberPlayers, __GAMETEST_SCENEID__);
-	_numberLives = std::vector <int> (_numberPlayers, __GAMETEST_MAXNUMBERLIVES__);
+	_currentWorld = std::vector <int> (nP, __GAMETEST_WORLDID__);
+	_currentScene = std::vector <int> (nP, __GAMETEST_SCENEID__);
+	_numberLives = std::vector <int> (nP, __GAMETEST_MAXNUMBERLIVES__);
 }
 
 // ---
