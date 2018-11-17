@@ -176,12 +176,12 @@ void TestAdArcade::InputHandlerBehaviour::manageJoystickButtonOnState (QGAMES::G
 		(game () -> activeState () -> nestedState () -> type () == __GAMETEST_PLAYINGGAMESTATE__ &&
 		 ((TestAdArcade::ControllingGameStates*) game () -> activeState ()) -> isStopped ()) ||
 		nJ != 0)
-		return; // If no playing, or playing but stopped, or the joysticj is not the 0, then nothing to execute...
+		return; // If no playing, or playing but stopped, or the joystick is not the 0, then nothing to execute...
 
 	TestAdArcade::SpaceBattleShip* chr = 
 		dynamic_cast <TestAdArcade::SpaceBattleShip*> (game () -> entity (__GAMETEST_BATTLESHIPID__));
 	assert (chr); // Just in case...
-	if (!p && nB == 0)
+	if (!p && (nB == 0 || nB == 10)) // In some joysticks (nintendo like) this should be the fire button...
 		chr -> toShoot ();
 }
 // --------------------------------------------------------------------------------
@@ -261,16 +261,13 @@ const int TestAdArcade::SpaceBattleShip::_POWERDATA [__GAMETEST_BATTLESHIPMAXPOW
 // ---
 bool TestAdArcade::SpaceBattleShip::canMove (const QGAMES::Vector& d, const QGAMES::Vector& a)
 {
-	bool result =
-		((position () + d).posX () > (__MAPWIDTHINPIXELS___ - currentForm () -> 
-			frameWidthForFrame (currentAspect ())) && goingRight ()) ||
-		((position () + d).posX () < 0 && goingLeft ());
-	result |=
-		((position () + d).posY () > (__MAPHEIGHTINPIXELS__ - currentForm () -> 
-			frameHeightForFrame (currentAspect ())) && goingBackward ()) ||
-		((position () + d).posY () < 0 && goingForward ());
-
-	return (!result);
+	bool lX = ((position () + d).posX () > (__MAPWIDTHINPIXELS___ - currentForm () -> 
+					frameWidthForFrame (currentAspect ())) && goingRight ()) ||
+			  ((position () + d).posX () < 0 && goingLeft ()); // Out of screen in x axis?
+	bool lY = ((position () + d).posY () > (__MAPHEIGHTINPIXELS__ - currentForm () -> 
+					frameHeightForFrame (currentAspect ())) && goingBackward ()) ||
+			  ((position () + d).posY () < 0 && goingForward ()); // Out of screen in Y axis?
+	return (!(lX || lY));
 }
 
 // ---
@@ -385,7 +382,10 @@ void TestAdArcade::SpaceBattleShip::toForward ()
 // ---
 bool TestAdArcade::SpaceBattleShip::goingForward () const
 {
-	return (currentState () && currentState () -> id () == __GAMETEST_BATTLESHIPMOVINGFORWARDSTATE__);
+	return (currentState () && 
+			currentState () -> id () == __GAMETEST_BATTLESHIPMOVINGFORWARDSTATE__ ||
+			currentState () -> id () == __GAMETEST_BATTLESHIPMOVINGLEFTFORWARDSTATE__ ||
+			currentState () -> id () == __GAMETEST_BATTLESHIPMOVINGRIGHTFORWARDSTATE__);
 }
 
 // ---
@@ -398,7 +398,10 @@ void TestAdArcade::SpaceBattleShip::toBackward ()
 // ---
 bool TestAdArcade::SpaceBattleShip::goingBackward () const
 {
-	return (currentState () && currentState () -> id () == __GAMETEST_BATTLESHIPMOVINGBACKWARDSTATE__);
+	return (currentState () && 
+			currentState () -> id () == __GAMETEST_BATTLESHIPMOVINGBACKWARDSTATE__ ||
+			currentState () -> id () == __GAMETEST_BATTLESHIPMOVINGLEFTBACKWARDSTATE__ ||
+			currentState () -> id () == __GAMETEST_BATTLESHIPMOVINGRIGHTBACKWARDSTATE__);
 }
 
 // ---
