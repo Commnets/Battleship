@@ -1143,6 +1143,27 @@ void TestAdArcade::Scene::updatePositions ()
 }
 
 // ---
+void TestAdArcade::Scene::finalize ()
+{
+	QGAMES::Scene::finalize ();
+
+	removeEntity (__AT (__AGM game ()) -> artist (__GAMETEST_BATTLESHIPID__));
+
+	_freeShootings.clear ();
+	for (int i = 0; i < __GAMETEST_BATTLESHITPMAXSHOOTINGS__; i++)
+		removeEntity (__AT (__AGM game ()) -> artist (__GAMETEST_BATTLESHIPSHOOTINGBASEID__ + i)); 
+
+	_freeAsteroids.clear ();
+	for (int i = 0; i < __GAMETEST_MAXASTEROIDS__; i++)
+		removeEntity (__AT (__AGM game ()) -> artist (__GAMETEST_ASTEROIDBASEID__ + i)); 
+
+	_shootingToCatch = NULL;
+	removeEntity (__AT (__AGM game ()) -> artist (__GAMETEST_BATTLESHIPSHOOTINGTOCATCHID__));
+
+	setMap (__MININT__);
+}
+
+// ---
 void TestAdArcade::Scene::processEvent (const QGAMES::Event& evnt)
 {
 	switch (evnt.code ())

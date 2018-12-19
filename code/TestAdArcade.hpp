@@ -459,6 +459,7 @@ namespace TestAdArcade
 		/** @see parent. */
 		virtual void initialize ();
 		virtual void updatePositions ();
+		virtual void finalize ();
 
 		/** @see parent. */
 		virtual void processEvent (const QGAMES::Event& evnt);
