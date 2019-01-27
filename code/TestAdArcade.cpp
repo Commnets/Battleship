@@ -2373,9 +2373,11 @@ void TestAdArcade::Game::removeScoreObjects ()
 void TestAdArcade::Game::initialize ()
 {
 	if (isInitialized ())
-		return;
+		return; // Only once...
 
 	QGAMES::AdvancedArcadeGame::initialize ();
+	if (!isInitialized ())
+		return;
 
 	mainScreen () -> windowAtCenter ();
 	mainScreen () -> setIcon (form (__GAMETEST_BATTLESHIPGAMELOGO__));
