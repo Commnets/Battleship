@@ -1312,7 +1312,8 @@ QGAMES::Scene* TestAdArcade::WorldBuilder::createSceneObject (int ns, const QGAM
 // --------------------------------------------------------------------------------
 // ---
 TestAdArcade::ControllingGameStates::ControllingGameStates (QGAMES::GameState* psSt)
-	: QGAMES::StandardGameStateControl (__GAMETEST_CONTROLGAMESTATE__, psSt, QGAMES::GameStates ())
+	: QGAMES::AdvancedGameStateControl (__GAMETEST_CONTROLGAMESTATE__, psSt, 
+		QGAMES::GameStates (), QGAMES::GameStateControl::FlowMap ())
 {
 	QGAMES::GameStates sts;
 	sts [std::string (__QGAMES_GAMESTATELOADINGNAME__)] =
@@ -1341,7 +1342,8 @@ TestAdArcade::ControllingGameStates::ControllingGameStates (QGAMES::GameState* p
 }
 
 // ---
-std::string TestAdArcade::ControllingGameStates::nextGameState (QGAMES::GameState* st, const QGAMES::Event& evnt) const
+std::string TestAdArcade::ControllingGameStates::nextGameState 
+	(QGAMES::GameState* st, const QGAMES::Event& evnt) const
 {
 	assert (st);
 
