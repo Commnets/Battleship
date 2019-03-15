@@ -922,7 +922,7 @@ namespace TestAdArcade
 
 	/** 
 	  * The specific class to show the different entries of the hall of fame. 
-	  *	The class inherits from the ome defined at AdvancedArcade library redefining how entries are created. 
+	  *	The class inherits from the one defined at AdvancedArcade library redefining how entries are created. 
 	  */
 	class ShowingEntriesHallOfFame : public QGAMES::ShowingHallOfFameGameState 
 	{
