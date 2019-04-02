@@ -1343,7 +1343,7 @@ TestAdArcade::ControllingGameStates::ControllingGameStates (QGAMES::GameState* p
 
 // ---
 std::string TestAdArcade::ControllingGameStates::nextGameState 
-	(QGAMES::GameState* st, const QGAMES::Event& evnt) const
+	(QGAMES::GameState* st, const QGAMES::Event& evnt)
 {
 	assert (st);
 
@@ -1564,7 +1564,7 @@ TestAdArcade::PresentationGameState::PresentationGameState ()
 	_rollingBackground -> setProperties (QGAMES::RollingFormsGameState::Properties
 		(bks,
 		 1, /** Loops before moving */
-		 __BD 3, /** Seconds before dissapearing */ 
+		 __BD 3, /** Seconds before disappearing */ 
 		 QGAMES::Vector (__BD 1, __BD 0, __BD 0), /** Movement */
 		 2, /** Instances per background */
 		 false /** The bks are not sequential */

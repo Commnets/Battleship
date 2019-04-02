@@ -534,7 +534,7 @@ namespace TestAdArcade
 		/** @see parent. */
 		virtual std::string firstGameState () const
 							{ return (std::string (__QGAMES_GAMESTATELOADINGNAME__)); }
-		virtual std::string nextGameState (QGAMES::GameState* st, const QGAMES::Event& evnt) const;
+		virtual std::string nextGameState (QGAMES::GameState* st, const QGAMES::Event& evnt);
 	};
 
 	/** A state that finishes when the return key or the mouse left button is pressed. */
