@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <Objects>
+
+	<!-- Includes -->
+	<Include file="adobjects.xml"/>
+
 	<Background id="100" form="200" times="2">
 		<Attributes>
 			<Attribute id="FADEGRADE" value="255"/>
