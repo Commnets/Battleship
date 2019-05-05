@@ -18,8 +18,6 @@
 			<!-- Exploding -->
 			<Form id="106"/>
 		</Forms>
-		<Capacities/>
-		<Physics/>
 		<Movements>
 			<!-- Moving -->
 			<Movement id="100"/>
@@ -154,8 +152,6 @@
 			<Form id="151"/>
 			<Form id="152"/>
 		</Forms>
-		<Capacities/>
-		<Physics/>
 		<MovementsBase>
 			<!-- Moving forward -->
 			<Movement id="150"/>
@@ -293,8 +289,6 @@
 			<!-- Exploding -->
 			<Form id="106"/>
 		</Forms>
-		<Capacities/>
-		<Physics/>
 		<MovementsBase>
 			<!-- Moving forward -->
 			<Movement id="350"/>
@@ -431,8 +425,6 @@
 		<Forms>
 			<Form id="120"/>
 		</Forms>
-		<Capacities/>
-		<Physics/>
 		<Movements>
 			<!-- Moving -->
 			<Movement id="450"/>

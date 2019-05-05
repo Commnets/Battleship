@@ -1,6 +1,7 @@
 #include "TestAdArcade.hpp"
 
 // --------------------------------------------------------------------------------
+// ---
 TestAdArcade::WhenFocusDecorator::WhenFocusDecorator ()
 	: QGAMES::Widget::ComplexDecorator ()
 {
@@ -257,6 +258,18 @@ const int TestAdArcade::SpaceBattleShip::_POWERDATA [__GAMETEST_BATTLESHIPMAXPOW
 	  { 5, 60,  5, 100, 600 }, 
 	  { 5, 100, 5, 100, 600 } 
 	};
+
+// ---
+QGAMES::Entity* TestAdArcade::SpaceBattleShip::clone () const
+{ 
+	QGAMES::Entity* result = new TestAdArcade::SpaceBattleShip (_id, _forms, _data);
+
+	result -> setMovements (movements ());
+	result -> setAnimations (cloneAnimations ());
+	result -> setStates (cloneStates ());
+
+	return (result);
+}
 
 // ---
 bool TestAdArcade::SpaceBattleShip::canMove (const QGAMES::Vector& d, const QGAMES::Vector& a)
@@ -566,6 +579,18 @@ void TestAdArcade::SpaceBattleShip::whenCollisionWith (QGAMES::Entity* e)
 
 // --------------------------------------------------------------------------------
 // ---
+QGAMES::Entity* TestAdArcade::SpaceBattleShipShooting::clone () const
+{ 
+	QGAMES::Entity* result = new TestAdArcade::SpaceBattleShipShooting (_id, _forms, _data);
+
+	result -> setMovements (movements ());
+	result -> setAnimations (cloneAnimations ());
+	result -> setStates (cloneStates ());
+
+	return (result);
+}
+
+// ---
 void TestAdArcade::SpaceBattleShipShooting::toMove (int type)
 {
 	if (!moving ())
@@ -691,6 +716,19 @@ void TestAdArcade::SpaceBattleShipShooting::processEvent (const QGAMES::Event& e
 const int TestAdArcade::Asteroid::_ENERGY [__GAMETEST_ASTEROIDNUMBERTYPES__] =
 	{ 100, 150, 150, 150, 200, 200 };
 
+// ---
+QGAMES::Entity* TestAdArcade::Asteroid::clone () const
+{ 
+	QGAMES::Entity* result = new TestAdArcade::Asteroid (_id, _forms, _data);
+
+	result -> setMovements (movements ());
+	result -> setAnimations (cloneAnimations ());
+	result -> setStates (cloneStates ());
+
+	return (result);
+}
+
+// ---
 void TestAdArcade::Asteroid::toMove (int type)
 {
 	if (!moving ())
@@ -844,6 +882,19 @@ void TestAdArcade::Asteroid::processEvent (const QGAMES::Event& evnt)
 // --------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------------------
+// ---
+QGAMES::Entity* TestAdArcade::ShootingToCatch::clone () const
+{
+	QGAMES::Entity* result = new TestAdArcade::ShootingToCatch (_id, _forms, _data);
+
+	result -> setMovements (movements ());
+	result -> setAnimations (cloneAnimations ());
+	result -> setStates (cloneStates ());
+
+	return (result);
+}
+
+// ---
 void TestAdArcade::ShootingToCatch::toMove (int type)
 {
 	if (!moving ())

@@ -80,7 +80,8 @@ namespace TestAdArcade
 		public:
 		NumberOfLivesScoreObject ();
 
-		/** @see parent. */
+		/** @see parent. 
+			It hasn't either movements, nor animations, nor states to copy. */
 		virtual QGAMES::Entity* clone () const
 							{ return (new NumberOfLivesScoreObject ()); }
 
@@ -94,7 +95,8 @@ namespace TestAdArcade
 		public:
 		NumberOfPointsScoreObject ();
 
-		/** @see parent. */
+		/** @see parent. 
+			It hasn't either movements, nor animations, nor states to copy. */
 		virtual QGAMES::Entity* clone () const
 							{ return (new NumberOfPointsScoreObject ()); }
 
@@ -113,7 +115,8 @@ namespace TestAdArcade
 		public:
 		NumberOfShootingsScoreObject ();
 
-		/** @see parent. */
+		/** @see parent. 
+			It hasn't either movements, nor animations, nor states to copy. */
 		virtual QGAMES::Entity* clone () const
 							{ return (new NumberOfShootingsScoreObject ()); }
 
@@ -138,9 +141,7 @@ namespace TestAdArcade
 			  _powerLevel (0)
 							{ }
 
-		/** @see parent. */
-		virtual Entity* clone () const
-								{ return (new SpaceBattleShip (_id, _forms, _data)); }
+		virtual Entity* clone () const;
 
 		/** @see parent. */
 		virtual bool canMove (const QGAMES::Vector& d, const QGAMES::Vector& a);
@@ -238,8 +239,7 @@ namespace TestAdArcade
 							{ }
 
 		/** @see parent. */
-		virtual Entity* clone () const
-							{ return (new SpaceBattleShipShooting (_id, _forms, _data)); }
+		virtual Entity* clone () const;
 
 		/** To get set the energy. 
 			The energy is set when shooting using information from the power level of the battleship. */
@@ -301,8 +301,7 @@ namespace TestAdArcade
 							{ return (_initialEnergy); }
 
 		/** @see parent. */
-		virtual Entity* clone () const
-							{ return (new Asteroid (_id, _forms, _data)); }
+		virtual Entity* clone () const;
 
 		// Controlling the movements
 		/** The parameter includes the type of asteroid to move. */
@@ -359,8 +358,7 @@ namespace TestAdArcade
 							{ }
 
 		/** @see parent. */
-		virtual Entity* clone () const
-							{ return (new ShootingToCatch (_id, _forms, _data)); }
+		virtual Entity* clone () const;
 
 		// Controlling the movements
 		/** The parameter includes the type of asteroid to move. */
