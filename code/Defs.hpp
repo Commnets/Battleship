@@ -1,4 +1,4 @@
-/** \addtogroup AdArcadeGame */
+/** \ingroup Example */
 /*@{*/
 
 /**	
@@ -15,7 +15,6 @@
 #define __GAMETESTADARCADEDEFINES__
 
 #include <AdvancedArcade/adinclude.hpp>
-#include <graphicsinclude.hpp>
 
 /** The limitis of the screen of the game. */
 #define __GAMETEST_SCREENWIDTH__						816

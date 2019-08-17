@@ -2,7 +2,7 @@
 <Monitors>
 	
 	<!-- This monitor consists on moving to the left and to the right -->
-	<Monitor id="10" cyclic="FALSE">
+	<Monitor id="10" cyclic="NO">
 		<!-- First stage -->
 		<!-- Staying for a while -->
 		<Step type="1">
@@ -62,7 +62,7 @@
 	</Monitor>
 	
 	<!-- This monitor consists on moving forward and backward -->
-	<Monitor id="11" cyclic="FALSE">
+	<Monitor id="11" cyclic="NO">
 		<!-- First stage -->
 		<!-- Staying for a while -->
 		<Step type="1">
@@ -122,7 +122,7 @@
 	</Monitor>
 	
 	<!-- This monitor consists on moving to the corners -->
-	<Monitor id="12" cyclic="FALSE">
+	<Monitor id="12" cyclic="NO">
 		<!-- First stage -->
 		<!-- Staying for a while -->
 		<Step type="1">
