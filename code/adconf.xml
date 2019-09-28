@@ -6,7 +6,7 @@
 	<!-- What is the name of the game -->
 	<Property id="GAMENAME" value="Commtynets Game"/>
 	<!-- What is the number of form to represent the icon of the game -->
-	<Property id="GAMEICON" value="10000">
+	<Property id="GAMEICON" value="10000"/>
 	<!-- Where to locate the window to play -->
 	<Property id="SCREENXPOSITION" value="10"/>
 	<Property id="SCREENYPOSITION" value="10"/>
