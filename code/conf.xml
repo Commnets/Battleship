@@ -2,7 +2,7 @@
 <Properties>
 	
 	<!-- Where to extract all resources used by the game -->
-	<Property id="DATADIR" value="D:/Temp"/>
+	<Property id="DATADIR" value="C:/Temp"/>
 	<!-- What is the name of the game -->
 	<Property id="GAMENAME" value="Commtynets Game"/>
 	<!-- What is the number of form to represent the icon of the game -->
